@@ -278,8 +278,7 @@ table tr:nth-child(2n), thead {
     padding: 1px 1px;
     font-size: 0.92rem;
     color: #e96900;
-    /* background-color: #f8f8f8; */
-    background-color: #272822;
+    background-color: #f8f8f8;
     border-radius: 2px;
 }
 
