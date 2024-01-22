@@ -102,7 +102,6 @@ blockquote {
 }
 
 pre {
-    background: #272822;
     padding: 2rem 1rem 1rem 1rem !important;
     border-radius: 0.35rem;
     tab-size: 4;
@@ -128,7 +127,8 @@ code {
     font-family: Inconsolata, Monaco, Consolas, 'Courier New', Courier, monospace;
     font-size: 0.91rem;
     color: #e96900;
-    background-color: #f8f8f8;
+    /* background-color: #f8f8f8; */
+    background: #272822;
     border-radius: 2px;
 }
 
