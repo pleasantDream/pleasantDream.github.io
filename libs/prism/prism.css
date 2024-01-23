@@ -8,10 +8,8 @@ https://prismjs.com/download.html#themes=prism-tomorrow&languages=markup+css+cli
 
 code[class*="language-"],
 pre[class*="language-"] {
-	/* color: #ccc; */
-	color: #e01f1f;
+	color: #ccc;
 	background: none;
-	/* background: #2d2d2d; */
 	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 	font-size: 1em;
 	text-align: left;
