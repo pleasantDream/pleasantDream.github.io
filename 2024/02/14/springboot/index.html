@@ -382,21 +382,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-02-14
+                    2024-02-29
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5.8k
+                    5.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    22 分
+                    21 分
                 </div>
                 
 
@@ -520,49 +520,39 @@
 
 <p><strong>注解（更常用）：</strong></p>
 <p>在启动类上面加如下注解</p>
-<ul>
-<li><pre><code class="java">@ComponentScan(basePackages = &quot;包名&quot;)
-<pre class="line-numbers language-none"><code class="language-none">
-&#96;&#96;&#96;java
-@ComponentScan(basePackages &#x3D; &quot;com.example&quot;)
-public class SpringBootMybatisApplication &#123;
-    public static void main(String[] args) &#123;
-  SpringApplication.run(SpringBootMybatisApplication.class, args);
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</code></pre>
-</li>
-</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@ComponentScan</span><span class="token punctuation">(</span>basePackages <span class="token operator">=</span> <span class="token string">"包名"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@ComponentScan</span><span class="token punctuation">(</span>basePackages <span class="token operator">=</span> <span class="token string">"com.example"</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SpringBootMybatisApplication</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token class-name">SpringApplication</span><span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token class-name">SpringBootMybatisApplication</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>添加了该注解会扫描包名（com.example）所在的包和其子包里的所有类</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@SpringBootApplication</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>其中@SpringBootApplication是一个组合注解，包含了@ComponentScan注解，无指定包名，只能扫描启动类所在的包和其子包里的所有类</p>
 <ul>
-<li><pre><code class="java">@SpringBootApplication
-<pre class="line-numbers language-none"><code class="language-none">
-其中@SpringBootApplication是一个组合注解，包含了@ComponentScan注解，无指定包名，只能扫描启动类所在的包和其子包里的所有类
+<li><strong>更常用第二种，因为一般所有需要的类都会放在启动类所在的包下</strong></li>
+</ul>
+<h3 id="Bean注册"><a href="#Bean注册" class="headerlink" title="Bean注册"></a>Bean注册</h3><p><img src="/2024/02/14/springboot/009.png"></p>
+<ul>
+<li>如果要注册的Bean对象来自第三方（不是自定义的比如maven提供的类），无法用@Component及其衍生注解来注册Bean的。只能用**@Bean或@import**来注册Bean对象</li>
+</ul>
+<h4 id="Bean"><a href="#Bean" class="headerlink" title="@Bean"></a>@Bean</h4><ul>
+<li>在启动类里面添加一个方法来注册Bean对象如：</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Bean</span>  
+<span class="token comment">// 注入Country对象,将方法返回值交给ioc容器</span>
+<span class="token comment">// Bean对象的名字默认是方法名，这里是country</span>
+<span class="token comment">// 要修改的话可以@Bean("名字")</span>
+<span class="token keyword">public</span> <span class="token class-name">Country</span> <span class="token function">country</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+	<span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Country</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-- **更常用第二种，因为一般所有需要的类都会放在启动类所在的包下**
-
-### Bean注册
-
-![](.&#x2F;springboot&#x2F;009.png)
-
-- 如果要注册的Bean对象来自第三方（不是自定义的比如maven提供的类），无法用@Component及其衍生注解来注册Bean的。只能用**@Bean或@import**来注册Bean对象
-
-#### @Bean
-
-- 在启动类里面添加一个方法来注册Bean对象如：
-
-&#96;&#96;&#96;java
-@Bean  
-&#x2F;&#x2F; 注入Country对象,将方法返回值交给ioc容器
-&#x2F;&#x2F; Bean对象的名字默认是方法名，这里是country
-&#x2F;&#x2F; 要修改的话可以@Bean(&quot;名字&quot;)
-public Country country()&#123;
-	return new Country();
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</code></pre>
-</li>
-<li><p>如果方法的内部需要用到ioc容器中已经存在的Bean对象，只需在方法上声明，spring会自动注入如：</p>
-</li>
+<ul>
+<li>如果方法的内部需要用到ioc容器中已经存在的Bean对象，只需在方法上声明，spring会自动注入如：</li>
 </ul>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Bean</span>  
 <span class="token keyword">public</span> <span class="token class-name">Province</span> <span class="token function">province</span><span class="token punctuation">(</span><span class="token class-name">Country</span> country<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
