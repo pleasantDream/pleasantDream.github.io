@@ -460,50 +460,44 @@
 </ul>
 </li>
 <li><p>导入</p>
-<ul>
-<li><pre><code class="html">&lt;script type=&quot;module&quot;&gt; 
-    import&#123;...&#125; from &#39;...&#39;
-&lt;/script&gt;
-<pre class="line-numbers language-none"><code class="language-none">
-## Vue概述
-
-- vue是一款用于**构建用户界面**的**渐进式**的**JavaScript框架**。
-- vue包提供了很多功能，我们可以只使用核心包中的功能来局部使用vue，也可以整个工程全部使用vue提供的功能
-
-## 局部使用Vue
-
-### 快速入门
-
-- 准备
-  - 准备html页面，并引入vue模块（官方提供）
-  - 创建vue程序的应用实例
-  - 准备元素（如div），被vue控制
-- 构建用户界面
-  - 准备数据
-  - 通过**插值表达式**渲染页面
-
-&#96;&#96;&#96;html
-   &lt;div id&#x3D;&quot;app&quot;&gt;
-        &lt;h1&gt;&#123;&#123;msg&#125;&#125;&lt;&#x2F;h1&gt; &#x2F;&#x2F; 插值表达式 &#123;&#123;...&#125;&#125;
-    &lt;&#x2F;div&gt;
-    &lt;!--引入vue模块--&gt;
-    &lt;script type&#x3D;&quot;module&quot;&gt;
-        import&#123;createApp&#125; from &#39;https:&#x2F;&#x2F;unpkg.com&#x2F;vue@3&#x2F;dist&#x2F;vue.esm-browser.js&#39;;
-        &#x2F;* 创建vue的应用实例*&#x2F;
-        createApp(&#123;
-            data()&#123;
-                return &#123;
-                    &#x2F;&#x2F; 定义数据
-                    msg: &#39;hello vue3&#39;
-                &#125;
-            &#125;
-        &#125;).mount(&#39;#app&#39;);  &#x2F;&#x2F; 接管id为app的模块
-    &lt;&#x2F;script&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</code></pre>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>module<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript"> 
+    <span class="token keyword">import</span><span class="token punctuation">&#123;</span><span class="token operator">...</span><span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'...'</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+<h2 id="Vue概述"><a href="#Vue概述" class="headerlink" title="Vue概述"></a>Vue概述</h2><ul>
+<li>vue是一款用于<strong>构建用户界面</strong>的<strong>渐进式</strong>的<strong>JavaScript框架</strong>。</li>
+<li>vue包提供了很多功能，我们可以只使用核心包中的功能来局部使用vue，也可以整个工程全部使用vue提供的功能</li>
+</ul>
+<h2 id="局部使用Vue"><a href="#局部使用Vue" class="headerlink" title="局部使用Vue"></a>局部使用Vue</h2><h3 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h3><ul>
+<li>准备<ul>
+<li>准备html页面，并引入vue模块（官方提供）</li>
+<li>创建vue程序的应用实例</li>
+<li>准备元素（如div），被vue控制</li>
+</ul>
 </li>
+<li>构建用户界面<ul>
+<li>准备数据</li>
+<li>通过<strong>插值表达式</strong>渲染页面</li>
 </ul>
 </li>
 </ul>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>app<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>&#123;&#123;msg&#125;&#125;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span> // 插值表达式 &#123;&#123;...&#125;&#125;
+ <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+ <span class="token comment">&lt;!--引入vue模块--></span>
+ <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>module<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+     <span class="token keyword">import</span><span class="token punctuation">&#123;</span>createApp<span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'https://unpkg.com/vue@3/dist/vue.esm-browser.js'</span><span class="token punctuation">;</span>
+     <span class="token comment">/* 创建vue的应用实例*/</span>
+     <span class="token function">createApp</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+         <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+             <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
+                 <span class="token comment">// 定义数据</span>
+                 <span class="token literal-property property">msg</span><span class="token operator">:</span> <span class="token string">'hello vue3'</span>
+             <span class="token punctuation">&#125;</span>
+         <span class="token punctuation">&#125;</span>
+     <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">mount</span><span class="token punctuation">(</span><span class="token string">'#app'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 接管id为app的模块</span>
+ </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h3><table>
 <thead>
 <tr>
