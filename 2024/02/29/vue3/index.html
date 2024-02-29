@@ -393,14 +393,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.8k
+                    4.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    19 分
+                    18 分
                 </div>
                 
 
@@ -580,11 +580,10 @@
 <li>注意： v-model中绑定的变量，必须在data中定义</li>
 </ul>
 <h3 id="Vue生命周期"><a href="#Vue生命周期" class="headerlink" title="Vue生命周期"></a>Vue生命周期</h3><ul>
-<li><p>生命周期： 指一个对象从创建到销毁的整个过程</p>
-</li>
-<li><p>生命周期的<strong>八个阶段</strong>：每个阶段会自动执行一个生命周期方法（钩子函数），让开发者有机会在特定的阶段执行自己的代码。</p>
-</li>
-<li><table>
+<li>生命周期： 指一个对象从创建到销毁的整个过程</li>
+<li>生命周期的<strong>八个阶段</strong>：每个阶段会自动执行一个生命周期方法（钩子函数），让开发者有机会在特定的阶段执行自己的代码。</li>
+</ul>
+<table>
 <thead>
 <tr>
 <th>状态</th>
@@ -625,132 +624,115 @@
 </tr>
 </tbody></table>
 <ul>
-<li><p>主要记住<strong>mounted</strong>，我们一般会在mounted函数中<strong>发送请求拿到页面需要展示的数据</strong>，以便将来可以把这些数据渲染到页面上进行展示</p>
-</li>
-<li><p><strong>vue生命周期典型的应用场景</strong>：在页面加载完毕时，发起异步请求，加载数据，渲染页面</p>
-</li>
-<li><p>钩子函数和data，methods是并列同级的，需要单独声明。</p>
-</li>
-<li><pre><code class="html">    &lt;script type=&quot;module&quot;&gt;
-        import&#123;createApp&#125; from &#39;https://unpkg.com/vue@3/dist/vue.esm-browser.js&#39;;
-        // 创建vue应用实例
-        createApp(&#123;
-            data()&#123;
-            &#125;,
-            methods:&#123;
-            &#125;,
-            mounted:function()&#123;
-                console.log(&#39;Vue挂载完毕，发送请求获取数据&#39;)
-            &#125;
-        &#125;).mount(&#39;#app&#39;)
-    &lt;/script&gt;
-<pre class="line-numbers language-none"><code class="language-none">
-    
-
-## 整站使用Vue
-
-### 环境准备 create-vue
-
-- create-vue： 是vue官方提供的脚手架工具，用于快速生成一个工程化的vue项目（类似springboot在后端的作用）
-- create-vue提供了如下功能：
-  - 统一的目录结构
-  - 本地调试
-  - 热部署（指在Vue项目运行时，无需重启服务器即可实时更新修改后的代码，使得修改能够立即生效。）
-  - 单元测试
-  - 集成打包
-- 依赖环境：Node JS （跨平台的js运行环境）（就是运行js 的）
-- npm： Node Package Manager， 是node js的软件包管理器。
-  - node js 的软件包会存到一个公共服务器（一般叫做远程仓库）上。
-  - 我们若需要其中的软件包，通过&#96;npm install  xxx&#96; 即可下载软件包
-
-### vue项目-创建
-
-- 创建一个工程化的vue项目，执行命令：&#96;cnpm init vue@latest&#96;   （已全局换源，所以不是npm）
-
-![](.&#x2F;vue3&#x2F;001.png)
-
-- 进入项目目录，执行命令安装当前项目的依赖 &#96;cnpm install&#96;（要联网）
-
-- vue项目目录结构：
-
-![](.&#x2F;vue3&#x2F;002.png)
-
-### vue项目-启动
-
-- 执行命令： &#96;cnpm run dev&#96;即可启动（需要进入项目目录），或者在vs code里启动
-- 访问项目：打开浏览器，地址栏输入 http:&#x2F;&#x2F;localhost:5173&#x2F;  访问vue项目
+<li>主要记住<strong>mounted</strong>，我们一般会在mounted函数中<strong>发送请求拿到页面需要展示的数据</strong>，以便将来可以把这些数据渲染到页面上进行展示</li>
+<li><strong>vue生命周期典型的应用场景</strong>：在页面加载完毕时，发起异步请求，加载数据，渲染页面</li>
+<li>钩子函数和data，methods是并列同级的，需要单独声明。</li>
+</ul>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>module<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+    <span class="token keyword">import</span><span class="token punctuation">&#123;</span>createApp<span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'https://unpkg.com/vue@3/dist/vue.esm-browser.js'</span><span class="token punctuation">;</span>
+    <span class="token comment">// 创建vue应用实例</span>
+    <span class="token function">createApp</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+        <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">methods</span><span class="token operator">:</span><span class="token punctuation">&#123;</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+        <span class="token function-variable function">mounted</span><span class="token operator">:</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Vue挂载完毕，发送请求获取数据'</span><span class="token punctuation">)</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">mount</span><span class="token punctuation">(</span><span class="token string">'#app'</span><span class="token punctuation">)</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
-### vue项目开发流程
-
-- 在 index.html 导入main.js文件，在main.js文件中导入了App.vue和Vue
-
-- vue项目入口文件： main.js
-
-- vue项目单文件组件:    App.vue(编写vue代码的地方)
-
-- vue项目包含的三个部分： 
-
-- ![](.&#x2F;vue3&#x2F;003.png)
-
-  - 其中script中代码的两种写法：
-
-    - &#96;&#96;&#96;vue
-      &lt;script&gt;
-         export default&#123;   &#x2F;&#x2F; export: 导出一个对象
-           data()&#123;     &#x2F;&#x2F; 声明响应式对象
-             return &#123;
-               message: &#39;上海&#39;
-             &#125;
-           &#125;
-        &#125;
-      &lt;&#x2F;script&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-- ```vue
-  &lt;script setup&gt;
-    import &#123; ref &#125; from &#39;vue&#39;;
-    // 调用ref函数，定义响应式数据
-    const message = ref(&#39;上海&#39;);
-  &lt;/script&gt;
-  <pre class="line-numbers language-none"><code class="language-none">
-      
-
-### vue的API风格
-
-- vue组件有两种不同风格：**组合式API（灵活）和选项式API（直观**）
-
-- 组合式API：
-
-- &#96;&#96;&#96;vue
-  &lt;script setup&gt;
-      import &#123;ref, onMounted&#125; from &#39;vue&#39;
-      &#x2F;&#x2F; 声明响应式数据ref,响应式对象有一个内部属性value
-      const count &#x3D; ref(0); &#x2F;&#x2F; 在组合式api中，一般需要把数据定义为响应式数据, 这里就是把count赋值为0
-      &#x2F;&#x2F; 声明函数
-      function increment()&#123;
-          count.value++;
-      &#125;
-      &#x2F;&#x2F; 声明钩子函数 onMounted
-      onMounted(()&#x3D;&gt;&#123;
-          console.log(&#39;Vue挂载完毕...&#39;);
-      &#125;);
-  &lt;&#x2F;script&gt;
-  &lt;template&gt;
-      &lt;!-- html元素 --&gt;
-      &lt;button v-on:click&#x3D;&quot;increment&quot;&gt;
-          count:&#123;&#123; count &#125;&#125;
-      &lt;&#x2F;button&gt;
-  &lt;&#x2F;template&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</code></pre>
-</li>
+<h2 id="整站使用Vue"><a href="#整站使用Vue" class="headerlink" title="整站使用Vue"></a>整站使用Vue</h2><h3 id="环境准备-create-vue"><a href="#环境准备-create-vue" class="headerlink" title="环境准备 create-vue"></a>环境准备 create-vue</h3><ul>
+<li>create-vue： 是vue官方提供的脚手架工具，用于快速生成一个工程化的vue项目（类似springboot在后端的作用）</li>
+<li>create-vue提供了如下功能：<ul>
+<li>统一的目录结构</li>
+<li>本地调试</li>
+<li>热部署（指在Vue项目运行时，无需重启服务器即可实时更新修改后的代码，使得修改能够立即生效。）</li>
+<li>单元测试</li>
+<li>集成打包</li>
 </ul>
 </li>
-<li><p>选项式API：</p>
-</li>
-<li><p><img src="/2024/02/29/vue3/004.png"></p>
+<li>依赖环境：Node JS （跨平台的js运行环境）（就是运行js 的）</li>
+<li>npm： Node Package Manager， 是node js的软件包管理器。<ul>
+<li>node js 的软件包会存到一个公共服务器（一般叫做远程仓库）上。</li>
+<li>我们若需要其中的软件包，通过<code>npm install  xxx</code> 即可下载软件包</li>
+</ul>
 </li>
 </ul>
+<h3 id="vue项目-创建"><a href="#vue项目-创建" class="headerlink" title="vue项目-创建"></a>vue项目-创建</h3><ul>
+<li>创建一个工程化的vue项目，执行命令：<code>cnpm init vue@latest</code>   （已全局换源，所以不是npm）</li>
+</ul>
+<p><img src="/2024/02/29/vue3/001.png"></p>
+<ul>
+<li><p>进入项目目录，执行命令安装当前项目的依赖 <code>cnpm install</code>（要联网）</p>
+</li>
+<li><p>vue项目目录结构：</p>
+</li>
+</ul>
+<p><img src="/2024/02/29/vue3/002.png"></p>
+<h3 id="vue项目-启动"><a href="#vue项目-启动" class="headerlink" title="vue项目-启动"></a>vue项目-启动</h3><ul>
+<li>执行命令： <code>cnpm run dev</code>即可启动（需要进入项目目录），或者在vs code里启动</li>
+<li>访问项目：打开浏览器，地址栏输入 <a target="_blank" rel="noopener" href="http://localhost:5173/">http://localhost:5173/</a>  访问vue项目</li>
+</ul>
+<h3 id="vue项目开发流程"><a href="#vue项目开发流程" class="headerlink" title="vue项目开发流程"></a>vue项目开发流程</h3><ul>
+<li><p>在 index.html 导入main.js文件，在main.js文件中导入了App.vue和Vue</p>
+</li>
+<li><p>vue项目入口文件： main.js</p>
+</li>
+<li><p>vue项目单文件组件:    App.vue(编写vue代码的地方)</p>
+</li>
+<li><p>vue项目包含的三个部分： </p>
+</li>
+<li><p><img src="/2024/02/29/vue3/003.png"></p>
+<ul>
+<li>其中script中代码的两种写法：</li>
+</ul>
+<pre class="line-numbers language-vue" data-language="vue"><code class="language-vue">&lt;script&gt;
+   export default&#123;   &#x2F;&#x2F; export: 导出一个对象
+     data()&#123;     &#x2F;&#x2F; 声明响应式对象
+       return &#123;
+         message: &#39;上海&#39;
+       &#125;
+     &#125;
+  &#125;
+&lt;&#x2F;script&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-vue" data-language="vue"><code class="language-vue">&lt;script setup&gt;
+  import &#123; ref &#125; from &#39;vue&#39;;
+  &#x2F;&#x2F; 调用ref函数，定义响应式数据
+  const message &#x3D; ref(&#39;上海&#39;);
+&lt;&#x2F;script&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+<h3 id="vue的API风格"><a href="#vue的API风格" class="headerlink" title="vue的API风格"></a>vue的API风格</h3><ul>
+<li>vue组件有两种不同风格：<strong>组合式API（灵活）和选项式API（直观</strong>）</li>
+<li>组合式API：</li>
+</ul>
+<pre class="line-numbers language-vue" data-language="vue"><code class="language-vue">&lt;script setup&gt;
+    import &#123;ref, onMounted&#125; from &#39;vue&#39;
+    &#x2F;&#x2F; 声明响应式数据ref,响应式对象有一个内部属性value
+    const count &#x3D; ref(0); &#x2F;&#x2F; 在组合式api中，一般需要把数据定义为响应式数据, 这里就是把count赋值为0
+    &#x2F;&#x2F; 声明函数
+    function increment()&#123;
+        count.value++;
+    &#125;
+    &#x2F;&#x2F; 声明钩子函数 onMounted
+    onMounted(()&#x3D;&gt;&#123;
+        console.log(&#39;Vue挂载完毕...&#39;);
+    &#125;);
+&lt;&#x2F;script&gt;
+&lt;template&gt;
+    &lt;!-- html元素 --&gt;
+    &lt;button v-on:click&#x3D;&quot;increment&quot;&gt;
+        count:&#123;&#123; count &#125;&#125;
+    &lt;&#x2F;button&gt;
+&lt;&#x2F;template&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>选项式API：</li>
+</ul>
+<p><img src="/2024/02/29/vue3/004.png"></p>
 <h3 id="接口调用规范"><a href="#接口调用规范" class="headerlink" title="接口调用规范"></a>接口调用规范</h3><ul>
 <li>接口调用的js代码一般会封装到.js文件中，并且以函数的形式暴露给外部，该.js文件一般放在src目录下的API包中。</li>
 <li>在接口中的函数名一般末尾加上Service（见名知意）</li>
@@ -785,70 +767,61 @@
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="拦截器"><a href="#拦截器" class="headerlink" title="拦截器"></a>拦截器</h3><ul>
-<li><p>在请求或响应被then或catch处理前拦截它们</p>
+<li>在请求或响应被then或catch处理前拦截它们</li>
+<li><img src="/2024/02/29/vue3/005.png"></li>
+</ul>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 定址请求的实例</span>
+<span class="token keyword">import</span> axios <span class="token keyword">from</span> <span class="token string">'axios'</span><span class="token punctuation">;</span>
+<span class="token comment">// 定义一个变量, 记录公共的前缀, baseURL</span>
+<span class="token keyword">const</span> baseURL <span class="token operator">=</span> <span class="token string">'http://localhost:8080'</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> instance <span class="token operator">=</span> axios<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> baseURL <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 添加响应拦截器</span>
+instance<span class="token punctuation">.</span>interceptors<span class="token punctuation">.</span>response<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>
+    <span class="token parameter">result</span><span class="token operator">=></span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> result<span class="token punctuation">.</span>data<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token parameter">err</span><span class="token operator">=></span><span class="token punctuation">&#123;</span>
+        <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'服务异常'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 异步的状态转化成失败的状态</span>
+        <span class="token keyword">return</span> PromiseRejectionEvent<span class="token punctuation">.</span><span class="token function">reject</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">)</span>
+<span class="token comment">// 将该实例对外暴露</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> instance<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="大事件前端"><a href="#大事件前端" class="headerlink" title="大事件前端"></a>大事件前端</h2><h3 id="前端开发步骤"><a href="#前端开发步骤" class="headerlink" title="前端开发步骤"></a>前端开发步骤</h3><p><img src="/2024/02/29/vue3/006.png"></p>
+<h3 id="跨域问题"><a href="#跨域问题" class="headerlink" title="跨域问题"></a>跨域问题</h3><ul>
+<li><p>由于<strong>浏览器的同源策略限制</strong>，向不同源（<strong>不同协议、不同域名、不同端口</strong>）发送ajax请求会失败</p>
 </li>
-<li><p><img src="/2024/02/29/vue3/005.png"></p>
+<li><p>比如浏览器所在的源为 <a target="_blank" rel="noopener" href="http://localhost:5173/">http://localhost:5173</a> , 发送ajax的源是<a target="_blank" rel="noopener" href="http://localhost:8080/">http://localhost:8080</a>, 由于是不同端口，会发送失败</p>
 </li>
-<li><pre><code class="js">// 定址请求的实例
-import axios from &#39;axios&#39;;
-// 定义一个变量, 记录公共的前缀, baseURL
-const baseURL = &#39;http://localhost:8080&#39;;
-const instance = axios.create(&#123; baseURL &#125;);
-
-// 添加响应拦截器
-instance.interceptors.response.use(
-    result=&gt;&#123;
-        return result.data;
-    &#125;,
-    err=&gt;&#123;
-        alert(&#39;服务异常&#39;);
-        // 异步的状态转化成失败的状态
-        return PromiseRejectionEvent.reject(err);
-    &#125;
-)
-// 将该实例对外暴露
-export default instance;
-<pre class="line-numbers language-none"><code class="language-none">
-  
-
-## 大事件前端
-
-### 前端开发步骤
-
-![](.&#x2F;vue3&#x2F;006.png)
-
-### 跨域问题
-
-- 由于**浏览器的同源策略限制**，向不同源（**不同协议、不同域名、不同端口**）发送ajax请求会失败
-
-- 比如浏览器所在的源为 http:&#x2F;&#x2F;localhost:5173 , 发送ajax的源是http:&#x2F;&#x2F;localhost:8080, 由于是不同端口，会发送失败
-
-- **只有浏览器会存在跨域问题**
-
-#### 解决方法
-
-- **代理**：在服务器端设置一个代理服务器，**所有的请求都先发送到代理服务器，然后由代理服务器转发给目标服务器**。这样，浏览器与代理服务器之间的请求就不会受到同源策略的限制。（服务端之间不存在跨域问题）
-
-- 举例（后端代理）：前端（源为5173）发送一个请求到后端服务器（5173的服务端）。然后，后端服务器作为客户端，向另一个服务（源为8080）发送请求。这样，前端不需要直接访问8080的服务，而是通过5173的服务端作为中介来间接访问。
-
-- 示例：
-
-  - request.js 中配置baseURL的值为 &#x2F;api
-
-  - vite.config.js中配置
-
-  - &#96;&#96;&#96;js
-    server:&#123;
-        proxy: &#123;
-          &#39;&#x2F;api&#39;:&#123;
-              target: &#39;http:&#x2F;&#x2F;localhost:8080&#39;, &#x2F;&#x2F; 后台服务器所在源
-              changeOrigin: true,  &#x2F;&#x2F;true ,修改源
-              rewrite: (path) &#x3D;&gt; path.replace(&#x2F;^\&#x2F;api&#x2F;, &#39;&#39;) &#x2F;&#x2F; api替换为&#39;&#39;
-          &#125;
-        &#125;
-      &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</code></pre>
+<li><p><strong>只有浏览器会存在跨域问题</strong></p>
 </li>
+</ul>
+<h4 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h4><ul>
+<li><p><strong>代理</strong>：在服务器端设置一个代理服务器，<strong>所有的请求都先发送到代理服务器，然后由代理服务器转发给目标服务器</strong>。这样，浏览器与代理服务器之间的请求就不会受到同源策略的限制。（服务端之间不存在跨域问题）</p>
+</li>
+<li><p>举例（后端代理）：前端（源为5173）发送一个请求到后端服务器（5173的服务端）。然后，后端服务器作为客户端，向另一个服务（源为8080）发送请求。这样，前端不需要直接访问8080的服务，而是通过5173的服务端作为中介来间接访问。</p>
+</li>
+<li><p>示例：</p>
+<ul>
+<li><p>request.js 中配置baseURL的值为 &#x2F;api</p>
+</li>
+<li><p>vite.config.js中配置</p>
+</li>
+</ul>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token literal-property property">server</span><span class="token operator">:</span><span class="token punctuation">&#123;</span>
+    <span class="token literal-property property">proxy</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      <span class="token string-property property">'/api'</span><span class="token operator">:</span><span class="token punctuation">&#123;</span>
+          <span class="token literal-property property">target</span><span class="token operator">:</span> <span class="token string">'http://localhost:8080'</span><span class="token punctuation">,</span> <span class="token comment">// 后台服务器所在源</span>
+          <span class="token literal-property property">changeOrigin</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>  <span class="token comment">//true ,修改源</span>
+          <span class="token function-variable function">rewrite</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">path</span><span class="token punctuation">)</span> <span class="token operator">=></span> path<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">^\/api</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span> <span class="token comment">// api替换为''</span>
+      <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ul>
 <h3 id="优化axios响应拦截器"><a href="#优化axios响应拦截器" class="headerlink" title="优化axios响应拦截器"></a>优化axios响应拦截器</h3><ul>
 <li><p>由于以下代码为共性代码,在多个函数中重复出现,所以将其放在响应拦截器中来统一完成</p>
@@ -870,39 +843,33 @@ export default instance;
 <li><p>安装vue-router <code>cnpm install vue-router@4</code></p>
 </li>
 <li><p>在src&#x2F;router&#x2F;index.js中创建路由器,并导出</p>
-<ul>
-<li><pre><code class="js">import &#123;createRouter, createWebHistory&#125; from &#39;vue-router&#39;;
-// 导入组件
-import LoginVue from &#39;../views/Login.vue&#39;;
-import LayoutVue from &#39;../views/Layout.vue&#39;;
-// 定义路由关系
-const routes = [
-    &#123; path: &#39;/login&#39;, component: LoginVue&#125;,
-    &#123; path: &#39;/&#39;, component: LayoutVue&#125;
-]
-// 创建路由器
-const router = createRouter(&#123;
-    history: createWebHistory(),  // 路由模式
-    routes: routes
-&#125;)
-// 导出路由
-export default router
-<pre class="line-numbers language-none"><code class="language-none">
-  - 在Vue应用实例中(main.js)使用vue-router
-
-  - 在App.vue中声明router-view标签,展示组件内容
-
-- **路由器切换组件**
-
-  &#96;&#96;&#96;js
-  import &#123;useRouter&#125; from &#39;vue-router&#39;; &#x2F;&#x2F; 导入模块
-  const router &#x3D; useRouter(); &#x2F;&#x2F; 得到router路由器
-  router.push(&#39;&#x2F;&#39;);    &#x2F;&#x2F; 借助路由跳转到首页<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</code></pre>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">import</span> <span class="token punctuation">&#123;</span>createRouter<span class="token punctuation">,</span> createWebHistory<span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'vue-router'</span><span class="token punctuation">;</span>
+<span class="token comment">// 导入组件</span>
+<span class="token keyword">import</span> LoginVue <span class="token keyword">from</span> <span class="token string">'../views/Login.vue'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> LayoutVue <span class="token keyword">from</span> <span class="token string">'../views/Layout.vue'</span><span class="token punctuation">;</span>
+<span class="token comment">// 定义路由关系</span>
+<span class="token keyword">const</span> routes <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">&#123;</span> <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">'/login'</span><span class="token punctuation">,</span> <span class="token literal-property property">component</span><span class="token operator">:</span> LoginVue<span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token punctuation">&#123;</span> <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">'/'</span><span class="token punctuation">,</span> <span class="token literal-property property">component</span><span class="token operator">:</span> LayoutVue<span class="token punctuation">&#125;</span>
+<span class="token punctuation">]</span>
+<span class="token comment">// 创建路由器</span>
+<span class="token keyword">const</span> router <span class="token operator">=</span> <span class="token function">createRouter</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+    <span class="token literal-property property">history</span><span class="token operator">:</span> <span class="token function">createWebHistory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>  <span class="token comment">// 路由模式</span>
+    <span class="token literal-property property">routes</span><span class="token operator">:</span> routes
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+<span class="token comment">// 导出路由</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> router<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>在Vue应用实例中(main.js)使用vue-router</p>
+</li>
+<li><p>在App.vue中声明router-view标签,展示组件内容</p>
 </li>
 </ul>
 </li>
-</ul>
+<li><p><strong>路由器切换组件</strong></p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">import</span> <span class="token punctuation">&#123;</span>useRouter<span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'vue-router'</span><span class="token punctuation">;</span> <span class="token comment">// 导入模块</span>
+<span class="token keyword">const</span> router <span class="token operator">=</span> <span class="token function">useRouter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 得到router路由器</span>
+router<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment">// 借助路由跳转到首页</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p><strong>子路由</strong></p>
 </li>
